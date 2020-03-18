@@ -1,0 +1,8 @@
+xlrd
+chart-studio
+plotly
+scipy
+scikit-learn
+sympy
+matplotlib
+seaborn
