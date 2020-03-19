@@ -346,14 +346,15 @@ def plot_data_graphs(resistance):
     print(f"Efficiency: {efficiency}%")
 
 if __name__ == '__main__':
-    for resistance_values in [1]:
-        plot_data_graphs(resistance_values)
+    for resistance in [1]:
+        plot_data_graphs(resistance)
     
     resistance_values = np.array([1, 1.2, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6]).astype(np.float64)
     voltage_values = np.array([0.176193, 0.193620666666667, 0.247881, 0.3116985, 0.317917, 0.3412875, 0.361429, 0.384375, 0.40167875]).astype(np.float64)
     output_power_values = voltage_values ** 2 / resistance_values
     output_power_values = output_power_values.astype(np.float64)
     
+    # Evidence/justification to remove anomalies
     detect_anomalies(output_power_values)
     
     # Remove anomaly
@@ -365,4 +366,5 @@ if __name__ == '__main__':
     
     plot_actual_boxplot(actual_output_power)
     
+    # Answer question (11)
     output_power_graph(actual_resistances, actual_output_power)
