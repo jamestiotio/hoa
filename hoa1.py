@@ -307,7 +307,7 @@ def output_power_graph(resistance_values, output_power_values):
     # Show plot on localhost
     pio.show(fig)
 
-# Function to graph (W, T_c and T_h) vs time
+# Function to graph (Ẇ, T_c and T_h) vs time
 def plot_data_graphs(resistance):
     # Read xlsx file as dataframe
     df = pd.read_excel("dataset.xlsx", sheet_name=f"{resistance}ohm", usecols = "A:D", na_values=" ", skiprows=range(0, 67)).dropna()
@@ -349,6 +349,7 @@ if __name__ == '__main__':
     for resistance in [1]:
         plot_data_graphs(resistance)
     
+    # Manually define values for ΔT = 16.2 °C
     resistance_values = np.array([1, 1.2, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6]).astype(np.float64)
     voltage_values = np.array([0.176193, 0.193620666666667, 0.247881, 0.3116985, 0.317917, 0.3412875, 0.361429, 0.384375, 0.40167875]).astype(np.float64)
     output_power_values = voltage_values ** 2 / resistance_values
